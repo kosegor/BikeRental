@@ -19,7 +19,7 @@ public class FamilyRental {
 	public double calculateRentalTotalPrice(){
 		int rentalPricesSum = 0;
 		for (Rental rental : rentalsList) {
-			rentalPricesSum=+rental.calculateRentalTotalPrice();
+			rentalPricesSum=rentalPricesSum+rental.calculateRentalTotalPrice();
 		}
 		return rentalPricesSum/100*(100-DISCOUNT);
 	}

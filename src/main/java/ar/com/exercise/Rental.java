@@ -7,9 +7,9 @@ package ar.com.exercise;
 public class Rental {
 	
 	private RentalTypes rentalType;
-	private String bike;
+	private String bike = "";
 	public static final int MAXIMUM_QUANTITY = 20;
-	private int quantity;
+	private int quantity = 0;
 	
 	/**
 	 * 
@@ -17,7 +17,7 @@ public class Rental {
 	 * @throws IllegalArgumentException Thrown quantity or rental type is not set.
 	 */
 	public int calculateRentalTotalPrice(){
-		if (!validateQuantity() || rentalType == null){
+		if (!validateQuantity(quantity) || rentalType == null){
 			throw new IllegalArgumentException("Please set quantity and rental type");
 		}
 		return quantity*rentalType.getPrice();
@@ -32,7 +32,7 @@ public class Rental {
 		if (rentalType == null){
 			throw new IllegalArgumentException("Please set rental type");
 		}
-		if (!validateQuantity()){
+		if (!validateQuantity(quantity)){			
 			throw new IllegalArgumentException("The quantity must be between 1 and " 
             		+ String.valueOf(rentalType.getMax()));
 		}
@@ -54,14 +54,19 @@ public class Rental {
 	/**
 	 * Validate quantity
 	 */
-	private boolean validateQuantity(){
-		if (quantity < 0 || quantity > rentalType.getMax()) {
+	private boolean validateQuantity(int quantity){
+		if (quantity < 1 || quantity > rentalType.getMax()) {
+			System.out.println(quantity);
+			System.out.println(rentalType.getMax());
 			return false;
         }
 		return true;
 	}
 	
 	public void setRentalType(RentalTypes rentalType) {
+		if (rentalType == null) {
+			throw new IllegalArgumentException("The bikes name cant be empty");
+        }
 		this.rentalType = rentalType;
 	}
 }

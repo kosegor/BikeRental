@@ -68,23 +68,25 @@ public class RentalTest {
         rental.calculateRentalTotalPrice();
     }
 	
-	@Test(expected = IllegalArgumentException.class)
+	@Test
     public void testForCalculateByHour() {
         Rental rental = new Rental();
         rental.setRentalType(RentalTypes.BY_HOUR);
         rental.setQuantity(10);
+        rental.setBike("bike by hour");
         int totalPriceCalculated = rental.calculateRentalTotalPrice();
         int totalPriceExpected = 10*5;
         assertEquals(totalPriceCalculated, totalPriceExpected);
     }
 	
-	@Test(expected = IllegalArgumentException.class)
+	@Test()
     public void testForCalculateByDay() {
         Rental rental = new Rental();
         rental.setRentalType(RentalTypes.BY_DAY);
         rental.setQuantity(1);
+        rental.setBike("bike by day");
         int totalPriceCalculated = rental.calculateRentalTotalPrice();
-        int totalPriceExpected = 1*15;
+        int totalPriceExpected = 1*20;
         assertEquals(totalPriceCalculated, totalPriceExpected);
     }
 	
@@ -93,6 +95,7 @@ public class RentalTest {
         Rental rental = new Rental();
         rental.setRentalType(RentalTypes.BY_WEEK);
         rental.setQuantity(3);
+        rental.setBike("bike by week");
         int totalPriceCalculated = rental.calculateRentalTotalPrice();
         int totalPriceExpected = 3*60;
         assertEquals(totalPriceCalculated, totalPriceExpected);
