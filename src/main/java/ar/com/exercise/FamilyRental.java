@@ -8,9 +8,9 @@ import java.util.ArrayList;
 public class FamilyRental {
 	
 	private ArrayList<Rental> rentalsList =  new ArrayList<Rental>();
-	private static final int DISCOUNT = 30;
-	private static final int MIN_RENTALS = 3;
-	private static final int MAX_RENTALS = 5;
+	public static final int DISCOUNT = 30;
+	public static final int MIN_RENTALS = 3;
+	public static final int MAX_RENTALS = 5;
 	
 	/**
 	 * 
@@ -27,17 +27,17 @@ public class FamilyRental {
 	/**
 	 * 
 	 * @param rentalsList The list of rentals the familyRental contain
+	 *  @throws IllegalArgumentException Thrown when the rentals quantity is not between MIN and MAX.
 	 */
-	public void setRentalsList(ArrayList<Rental> rentalsList) throws Exception {
+	public void setRentalsList(ArrayList<Rental> rentalsList) {
+		if (rentalsList == null){
+			throw new IllegalArgumentException("Please set rental list type");
+		}
 		if (rentalsList.size() < MIN_RENTALS || rentalsList.size() > MAX_RENTALS) {
-            System.out.println("The rentals quantity must be between " 
+			throw new IllegalArgumentException("The rentals quantity must be between " 
             		+ String.valueOf(MIN_RENTALS) + " and " + String.valueOf(MAX_RENTALS));
         }
 		this.rentalsList = rentalsList;
-	}
-
-	public ArrayList<Rental> getRentalsList() {
-		return rentalsList;
 	}
 
 }
