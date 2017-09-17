@@ -56,8 +56,6 @@ public class Rental {
 	 */
 	private boolean validateQuantity(int quantity){
 		if (quantity < 1 || quantity > rentalType.getMax()) {
-			System.out.println(quantity);
-			System.out.println(rentalType.getMax());
 			return false;
         }
 		return true;
