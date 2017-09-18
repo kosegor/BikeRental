@@ -14,7 +14,7 @@ public class FamilyRental {
 	
 	/**
 	 * 
-	 * @return Calculation of rental total price
+	 * @return Calculation of rental price
 	 */
 	public double calculateRentalTotalPrice(){
 		int rentalPricesSum = 0;
@@ -26,7 +26,7 @@ public class FamilyRental {
 	
 	/**
 	 * 
-	 * @param rentalsList The list of rentals the familyRental contain
+	 * @param rentalsList The list of rentals the familyRental contains
 	 *  @throws IllegalArgumentException Thrown when the rentals quantity is not between MIN and MAX.
 	 */
 	public void setRentalsList(ArrayList<Rental> rentalsList) {

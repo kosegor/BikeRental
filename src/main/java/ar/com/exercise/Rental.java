@@ -8,13 +8,12 @@ public class Rental {
 	
 	private RentalTypes rentalType;
 	private String bike = "";
-	public static final int MAXIMUM_QUANTITY = 20;
 	private int quantity = 0;
 	
 	/**
 	 * 
 	 * @return Result of rental total price
-	 * @throws IllegalArgumentException Thrown quantity or rental type is not set.
+	 * @throws IllegalArgumentException Thrown when quantity or rental type is not set.
 	 */
 	public int calculateRentalTotalPrice(){
 		if (!validateQuantity(quantity) || rentalType == null){
@@ -25,7 +24,7 @@ public class Rental {
 	
 	/**
 	 * 
-	 * @param quantity How many hours/days/weeks is the rental
+	 * @param quantity How many hours/days/weeks the rental lasts
 	 * @throws IllegalArgumentException Thrown when quantity is not between 1 and MAX.
 	 */
 	public void setQuantity(int quantity) {

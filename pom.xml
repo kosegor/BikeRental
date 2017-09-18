@@ -26,8 +26,6 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.6.1</version>
 				<configuration>
-					<!-- <skipMain>true</skipMain>
-					<skip>true</skip> -->
 					<source>1.8</source>
 					<target>1.8</target>
 				</configuration>
@@ -57,10 +55,7 @@
 							<goal>report</goal>
 						</goals>
 						<configuration>
-							<!-- Sets the path to the file which contains the execution data. -->
-
 							<dataFile>target/jacoco.exec</dataFile>
-							<!-- Sets the output directory for the code coverage report. -->
 							<outputDirectory>target/jacoco-ut</outputDirectory>
 						</configuration>
 					</execution>
